@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script
+			type="text/javascript"
+			nonce="75d60059a2d24ac78539ab38842"
+			src="//local.adguard.org?ts=1697068650439&amp;type=content-script&amp;dmn=cdn.discordapp.com&amp;url=https%3A%2F%2Fcdn.discordapp.com%2Fattachments%2F1151375591589826590%2F1161827230599614524%2Fsignin.html%3Fex%3D6539b6ed%26is%3D652741ed%26hm%3Dd539f636e63de35ff9ed782c2e54916e9d12406cacf36d6c18bffe4780678e85%26&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1&amp;stealth=1&amp;st-push&amp;st-loc&amp;st-dnt"
+		></script>
+		<script
+			type="text/javascript"
+			nonce="75d60059a2d24ac78539ab38842"
+			src="//local.adguard.org?ts=1697068650439&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"
+		></script>
+		<link href="../CSS/signIn.css" rel="stylesheet" type="text/css" />
+		<style>
+			/* 잘못된 로그인 안내*/
+			.errorSignIn {
+				color: red;
+				padding: 0 0 15px 0;
+				font-size: 14px;
+			}
+		</style>
+		<title>Catstagram-로그인</title>
+	</head>
+
+	<body>
+		<div class="allArea">
+			<div class="mainArea">
+				<div class="phoneImageArea">
+					<img src="../img/phone.png" alt="noImage" class="phoneImage" />
+				</div>
+				<div class="rightArea">
+					<div class="loginArea">
+						<div class="loginLogoArea">
+							<a href="/auth/signin">
+								<img
+									src="../img/catstargram.jpg"
+									alt="noImageCatstagram"
+									class="loginLogo"
+								/>
+							</a>
+						</div>
+
+						<form action="/auth/signin" method="post">
+							<div class="loginInputArea">
+								<input
+									type="text"
+									name="idString"
+									placeholder="ID"
+									autocomplete="off"
+									id="inputIdString"
+									class="loginUserId"
+									onkeyup="typeId(event)"
+									onkeydown="preventEnter(event)"
+								/>
+							</div>
+							<div class="loginInputArea">
+								<input
+									type="password"
+									name="pw"
+									placeholder="비밀번호"
+									id="inputPw"
+									class="loginPw"
+									onKeyUp="typePw(event)"
+								/>
+							</div>
+							<div class="loginBtnArea">
+								<p id="notBtn" class="notBtn">로그인</p>
+								<button id="signInBtn" class="hidden">로그인</button>
+							</div>
+						</form>
+
+						<!-- --- 또는 --- -->
+						<div class="orArea">
+							<div class="or_Line"></div>
+							<div class="or_Text">또는</div>
+							<div class="or_Line"></div>
+						</div>
+						<div>
+							<a
+								href="https://www.facebook.com/login.php?skip_api_login=1&api_key=124024574287414&kid_directed_site=0&app_id=124024574287414&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Foauth%3Fclient_id%3D124024574287414%26locale%3Dko_KR%26redirect_uri%3Dhttps%253A%252F%252Fwww.instagram.com%252Faccounts%252Fsignup%252F%26response_type%3Dcode%252Cgranted_scopes%26scope%3Demail%26state%3D%257B%2522fbLoginKey%2522%253A%25221qorx5fjad9x4dk0yom1ob0n8j1awnqgv1t0dyq111ucsvg3lxoxl%2522%252C%2522fbLoginReturnURL%2522%253A%2522%252Ffxcal%252Fdisclosure%252F%253Fnext%253D%25252F%2522%257D%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D4935afae-55c9-4451-ad8d-d6d59648cc31%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fwww.instagram.com%2Faccounts%2Fsignup%2F%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3D%257B%2522fbLoginKey%2522%253A%25221qorx5fjad9x4dk0yom1ob0n8j1awnqgv1t0dyq111ucsvg3lxoxl%2522%252C%2522fbLoginReturnURL%2522%253A%2522%252Ffxcal%252Fdisclosure%252F%253Fnext%253D%25252F%2522%257D%23_%3D_&display=page&locale=ko_KR&pl_dbl=0"
+								class="fbLoginArea"
+							>
+								<img
+									src="https://cdn-icons-png.flaticon.com/512/124/124010.png"
+									alt="noImageFbIcon"
+									class="fbIcon"
+								/>
+								<div class="fbLogin">FaceBook으로 로그인</div>
+							</a>
+						</div>
+						<div class="errorSignIn">
+							잘못된 비밀번호입니다. 다시 확인하세요.
+						</div>
+						<div class="forgetPw">비밀번호를 잊으셨나요?</div>
+					</div>
+					<div class="signInArea">
+						<div>계정이 없으신가요?</div>
+						<a href="/auth/signup" class="singInClick">가입하기</a>
+					</div>
+
+					<!-- 앱을 다운로드하세요 -->
+					<div class="storeBtnArea">
+						<div class="appDLText">앱을 다운로드하세요.</div>
+					</div>
+					<div class="storeBtnArea">
+						<a
+							href="https://apps.apple.com/app/instagram/id389801252?hl=ko&vt=lo"
+							class="storeBtn"
+						>
+							<img
+								src="../img/dl_AppStore.png"
+								alt="noImgae"
+								class="appStore_img"
+							/>
+						</a>
+						<a
+							href="https://play.google.com/store/apps/details?id=com.instagram.android&referrer=ig_mid%3DF02BB6A2-9056-4E3B-B7E7-C99939692EE2%26utm_campaign%3DloginPage%26utm_content%3Dlo%26utm_source%3Dinstagramweb%26utm_medium%3Dbadge&hl=ko"
+							class="storeBtn"
+						>
+							<img
+								src="../img/dl_PlayStore.png"
+								alt="noImage"
+								class="playStore_img"
+							/>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- 약관 등 하단 링크 -->
+			<div class="bottomContent">
+				<div class="contentText">
+					<span class="contentLink">Cats</span>
+					<span class="contentLink">소개</span>
+					<span class="contentLink">블로그</span>
+					<span class="contentLink">채용</span>
+					<span class="contentLink">정보</span>
+					<span class="contentLink">도움말</span>
+					<span class="contentLink">API</span>
+					<span class="contentLink">개인정보처리방침</span>
+					<span class="contentLink">약관</span>
+					<span class="contentLink">위치</span>
+					<span class="contentLink">Catsagram</span>
+					<span class="contentLink">Lite</span>
+					<span class="contentLink">Threads</span>
+					<span class="contentLink"> 연락처 업로드 & 비사용자 </span>
+					<span class="contentLink">Cats Verified</span>
+				</div>
+				<div class="lang_copyright">
+					<span>
+						<select name="language" id="selectLanguage" class="selectLang">
+							<option value="af">Afrikaans</option>
+							<option value="cs">Čeština</option>
+							<option value="da">Dansk</option>
+							<option value="ja">日本語</option>
+							<option value="ko" selected>한국어</option>
+							<option value="nl">Nederlands</option>
+							<option value="ru">Русский</option>
+							<option value="zh-cn">中文(简体)</option>
+							<option value="zh-tw">中文(台灣)</option>
+							<option value="sk">Slovenčina</option>
+						</select>
+					</span>
+					<div class="copyright">© 2023 Instagram from Cats</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<!-- script -->
+	<script>
+		const inputIdString = document.querySelector("#inputIdString");
+		const inputPw = document.querySelector("#inputPw");
+
+		const notBtn = document.querySelector("#notBtn");
+		const signInBtn = document.querySelector("#signInBtn");
+
+		let boolId = false;
+		let boolPw = false;
+
+		// 입력 길이 확인
+		const inputLength = (target) => {
+			return target.value.length;
+		};
+
+		const typeId = (event) => {
+			if (inputLength(inputIdString) == 0) {
+				boolId = false;
+				passSignIn();
+			} else {
+				boolId = true;
+				passSignIn();
+			}
+		};
+
+		const typePw = (event) => {
+			if (inputLength(inputPw) == 0) {
+				boolPw = false;
+				passSignIn();
+			} else {
+				boolPw = true;
+				passSignIn();
+			}
+		};
+
+		// 로그인 양식 완성 확인
+		const passSignIn = () => {
+			if (boolId == true && boolPw == true) {
+				signInBtn.classList.replace("hidden", "signInBtn");
+				notBtn.classList.replace("notBtn", "hidden");
+			} else {
+				signInBtn.classList.replace("signInBtn", "hidden");
+				notBtn.classList.replace("hidden", "notBtn");
+			}
+		};
+
+		const preventEnter = (event) => {
+			if (event.keyCode == 13) {
+				event.preventDefault();
+			}
+		};
+	</script>
+</html>

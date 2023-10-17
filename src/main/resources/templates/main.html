@@ -1,0 +1,43 @@
+<!-- <p>현재 로그인 된 이름 : [[${session.id}]] -->
+
+
+
+
+
+<head th:replace="common/head"></head>
+
+<body>
+
+  <div th:replace="common/header"></div>
+  <h1>메인페이지입니다</h1>
+  <p th:if="${session.id}== null">
+    <a href="/auth/signin">로그인페이지 이동</a>
+    <a href="/auth/signup">가입페이지 이동</a>
+
+  </p>
+  <p th:unless="${session.id}== null">현재 로그인 된 아이디: [[${session.id}]]
+
+    <button th:onclick="|location.assign('/userhistory')|">내 정보</button>
+
+    <button onclick="signOut()">로그아웃</button>
+    <br>
+    <button onclick="gesi()">게시판이동</button>
+    <br>
+
+
+  </p>
+  <aside th:replace="common/left"></aside>
+  <footer th:replace="common/footer"></footer>
+</body>
+
+
+<script>
+  location = "/board"
+  function signOut() {
+    location.replace("/auth/signout");
+  }
+  function gesi() {
+    location.replace("/board/list");
+  }
+
+</script>

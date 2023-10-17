@@ -1,0 +1,21 @@
+<!-- class="p-5 bg-primary text-white text-center" -->
+<div>
+  <h1 th:if="${session.id == null}">
+    <a th:href="@{/auth/signin}" class="link-dark">
+      로그인 후 사용해주세요.
+    </a>
+  </h1>
+  <h1 th:unless="${session.user_info == null}">
+    <a th:href="@{/auth/signout}" class="link-dark">
+      [[ ${session.userid.name} + '님 반갑습니다.' ]]
+    </a>
+    <button onclick="logout()">로그아웃</button>
+  </h1>
+
+</div>
+<script>
+  function logout() {
+    location.replace("/signout")
+  }
+</script>
+<div class="userId">[[${session.id}]]</div>

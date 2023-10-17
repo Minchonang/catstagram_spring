@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script
+			type="text/javascript"
+			nonce="94ae3dc795c04043846b609b992"
+			src="//local.adguard.org?ts=1697005236027&amp;type=content-script&amp;dmn=cdn.discordapp.com&amp;url=https%3A%2F%2Fcdn.discordapp.com%2Fattachments%2F1151375591589826590%2F1161573468312191078%2Fsignup.html%3Fex%3D6538ca97%26is%3D65265597%26hm%3Dfa264816e8d62adf064d65714771289e17f681a146e9412b4bb33ae4d120c5dd%26&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"
+		></script>
+		<script
+			type="text/javascript"
+			nonce="94ae3dc795c04043846b609b992"
+			src="//local.adguard.org?ts=1697005236027&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"
+		></script>
+		<link rel="stylesheet" th:href="@{../CSS/singUp.css}" />
+		<title>Catstagram-회원가입</title>
+	</head>
+
+	<body>
+		<div class="allArea">
+			<div class="mainArea">
+				<!-- 로그인 영역 -->
+				<div class="loginArea">
+					<div class="loginLogoArea">
+						<a href="/auth/signin"
+							><img
+								src="../img/catstargram.jpg"
+								alt="noImageCatstagram"
+								class="loginLogo"
+						/></a>
+					</div>
+					<div class="text_fbArea">
+						<!-- 친구들의 사진과 동영상을 보려면 가입하세요. -->
+						<div class="underLogoTextArea">
+							<div class="underLogoText">
+								친구들의 사진과 동영상을 보려면 가입하세요.
+							</div>
+						</div>
+					</div>
+
+					<!-- Facebook으로 로그인 -->
+
+					<div class="fbLoginArea">
+						<div>
+							<a
+								href="https://www.facebook.com/login.php?skip_api_login=1&api_key=124024574287414&kid_directed_site=0&app_id=124024574287414&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Foauth%3Fclient_id%3D124024574287414%26locale%3Dko_KR%26redirect_uri%3Dhttps%253A%252F%252Fwww.instagram.com%252Faccounts%252Fsignup%252F%26response_type%3Dcode%252Cgranted_scopes%26scope%3Demail%26state%3D%257B%2522fbLoginKey%2522%253A%25221q7e3ss6xj9zl3t92ma5or1zrmu24ozyypol5icip061q3w51f%2522%252C%2522fbLoginReturnURL%2522%253A%2522%252Ffxcal%252Fdisclosure%252F%2522%257D%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D7b68386c-bef2-4152-a322-4bb21e6d5f90%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fwww.instagram.com%2Faccounts%2Fsignup%2F%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3D%257B%2522fbLoginKey%2522%253A%25221q7e3ss6xj9zl3t92ma5or1zrmu24ozyypol5icip061q3w51f%2522%252C%2522fbLoginReturnURL%2522%253A%2522%252Ffxcal%252Fdisclosure%252F%2522%257D%23_%3D_&display=page&locale=ko_KR&pl_dbl=0"
+								class="fbLoginBtn"
+							>
+								<img src="../img/facebook_icon.png" alt="noImageFbIcon" />
+								<span class="fbLogin">FaceBook으로 로그인</span>
+							</a>
+						</div>
+					</div>
+
+					<!-- 또는 -->
+					<div class="orArea">
+						<div class="or_Line"></div>
+						<div class="or_Text">또는</div>
+						<div class="or_Line"></div>
+					</div>
+
+					<div class="signUpArea">
+						<form action="/auth/signup" method="post" class="signUpForm">
+							<div>
+								<input
+									type="text"
+									placeholder="이메일 주소"
+									name="email"
+									autocomplete="off"
+									onkeyup="checkEmail(event), typeEmail(event)"
+									onkeydown="preventEnter(event)"
+									id="inputEmail"
+									class="inputEmail"
+								/>
+
+								<input
+									type="number"
+									placeholder="휴대폰 번호"
+									name="tel"
+									autocomplete="off"
+									onkeyup="checkTel(event), typeTel(event)"
+									onkeydown="preventEnter(event)"
+									id="inputTel"
+									class="inputTel"
+								/>
+								<input
+									type="text"
+									placeholder="ID"
+									name="idString"
+									autocomplete="off"
+									onkeyup="checkId(event), typeId(event)"
+									onkeydown="preventEnter(event)"
+									id="inputIdString"
+									class="inputIdString"
+								/>
+								<input
+									type="text"
+									placeholder="사용자 이름"
+									name="name"
+									autocomplete="off"
+									onkeyup="typeName(event)"
+									onkeydown="preventEnter(event)"
+									id="inputName"
+									class="inputName"
+								/>
+								<input
+									type="password"
+									placeholder="비밀번호"
+									name="pw"
+									autocomplete="off"
+									onkeyup="typePw(event)"
+									onkeydown="preventEnter(event)"
+									id="inputPw"
+									class="inputPw"
+								/>
+							</div>
+
+							<div class="info">
+								<span class="infoText">
+									저희 서비스를 이용하는 사람이 회원님의 연락처 정보를
+									Catstagram에 업로드했을 수도 있습니다.
+								</span>
+								<span class="seeMore">
+									<a
+										href="https://www.facebook.com/help/instagram/261704639352628"
+										class="seeMore"
+										>더 알아보기</a
+									>
+								</span>
+							</div>
+							<p id="errorMessage" class="hidden">중복된 ID입니다.</p>
+							<p id="errorNumMessage" class="hidden">이미 존재한 번호입니다.</p>
+							<p id="errorFormat" class="hidden">이메일 주소가 아닙니다.</p>
+							<p id="notBtn" class="notBtn">가입</p>
+
+							<button id="signUpBtn" class="hidden">가입</button>
+						</form>
+					</div>
+				</div>
+
+				<!-- 계정이 있으신가요? -->
+				<div class="haveAccountArea">
+					<div>계정이 있으신가요?&nbsp;</div>
+					<a href="/auth/signin" style="color: #0796f6">로그인</a>
+				</div>
+
+				<!-- 앱을 다운로드하세요 -->
+				<div class="storeBtnArea">
+					<div class="appDLText">앱을 다운로드하세요.</div>
+					<div class="storeBtn">
+						<a href="https://apps.apple.com/us/app/instagram/id389801252?vt=lo">
+							<img
+								src="../img/dl_AppStore.png"
+								alt="noAppStoreImg"
+								class="appStore_img"
+							/>
+						</a>
+						<a
+							href="https://play.google.com/store/apps/details?id=com.instagram.android&referrer=ig_mid%3D219B00F2-802B-408F-97FA-CED596E27198%26utm_campaign%3DsignupPage%26utm_content%3Dlo%26utm_source%3Dinstagramweb%26utm_medium%3Dbadge"
+						>
+							<img
+								src="../img/dl_PlayStore.png"
+								alt="noGooglePlayImg"
+								class="playStore_img"
+							/>
+						</a>
+					</div>
+				</div>
+
+				<!-- 약관 등 하단 링크 -->
+				<div class="bottomContent">
+					<div class="contentText">
+						<span class="contentLink">Cats</span>
+						<span class="contentLink">소개</span>
+						<span class="contentLink">블로그</span>
+						<span class="contentLink">채용</span>
+						<span class="contentLink">정보</span>
+						<span class="contentLink">도움말</span>
+						<span class="contentLink">API</span>
+						<span class="contentLink">개인정보처리방침</span>
+						<span class="contentLink">약관</span>
+						<span class="contentLink">위치</span>
+						<span class="contentLink">Catsagram</span>
+						<span class="contentLink">Lite</span>
+						<span class="contentLink">Threads</span>
+						<span class="contentLink"> 연락처 업로드 & 비사용자 </span>
+						<span class="contentLink">Cats Verified</span>
+					</div>
+					<div class="lang_copyright">
+						<span>
+							<select name="language" id="selectLanguage" class="selectLang">
+								<option value="af">Afrikaans</option>
+								<option value="cs">Čeština</option>
+								<option value="da">Dansk</option>
+								<option value="ja">日本語</option>
+								<option value="ko" selected>한국어</option>
+								<option value="nl">Nederlands</option>
+								<option value="ru">Русский</option>
+								<option value="zh-cn">中文(简体)</option>
+								<option value="zh-tw">中文(台灣)</option>
+								<option value="sk">Slovenčina</option>
+							</select>
+						</span>
+						<div class="copyright">© 2023 Catstagram from Cats</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div>
+			테스트영역
+			<button onclick="emailFormat(inputEmail.value)">이메일</button>
+			<button onclick="Format()">휴대폰</button>
+			<button onclick="Format()">아이디</button>
+		</div>
+	</body>
+
+	<!-- script -->
+	<script>
+		const inputEmail = document.querySelector("#inputEmail");
+		const inputTel = document.querySelector("#inputTel");
+		const inputIdString = document.querySelector("#inputIdString");
+		const inputName = document.querySelector("#inputName");
+		const inputPw = document.querySelector("#inputPw");
+		const signUpBtn = document.querySelector("#signUpBtn");
+		const notBtn = document.querySelector("#notBtn");
+		const errorMessage = document.querySelector("#errorMessage");
+		const errorFormat = document.querySelector("#errorFormat");
+		const errorNumMessage = document.querySelector("#errorNumMessage");
+
+		let boolEmail = false;
+		let boolTel = false;
+		let boolId = false;
+		let boolName = false;
+		let boolPw = false;
+		let boolOverlapEmail = false;
+		let boolOverlapTel = false;
+		let boolOverlapId = false;
+		let boolEmailformat = false;
+
+		// input 입력 여부 확인
+		const inputLength = (target) => {
+			return target.value.length;
+		};
+
+		const typeEmail = (event) => {
+			if (inputLength(inputEmail) == 0) {
+				boolEmail = false;
+				passSignUp();
+			} else {
+				boolEmail = true;
+				passSignUp();
+			}
+		};
+		const typeTel = (event) => {
+			if (inputLength(inputTel) > 11) {
+				boolTel = false;
+				passSignUp();
+			} else {
+				boolTel = true;
+				passSignUp();
+			}
+		};
+		const typeId = (event) => {
+			if (inputLength(inputIdString) == 0) {
+				boolId = false;
+				// passSignUp();
+			} else {
+				boolId = true;
+				// passSignUp();
+			}
+			console.log(`id : ${boolId}`);
+		};
+		const typeName = (event) => {
+			if (inputLength(inputName) == 0) {
+				boolName = false;
+				passSignUp();
+			} else {
+				boolName = true;
+				passSignUp();
+			}
+		};
+		const typePw = (event) => {
+			if (inputLength(inputPw) == 0) {
+				boolPw = false;
+				passSignUp();
+			} else {
+				boolPw = true;
+				passSignUp();
+			}
+		};
+
+		const passSignUp = () => {
+			if (
+				boolEmail == true &&
+				boolTel == true &&
+				boolId == true &&
+				boolName == true &&
+				boolPw == true &&
+				boolOverlapEmail == true &&
+				boolOverlapTel == true &&
+				boolOverlapId == true &&
+				boolEmailformat == true
+			) {
+				signUpBtn.classList.replace("hidden", "signUpBtn");
+				notBtn.classList.replace("notBtn", "hidden");
+			} else {
+				signUpBtn.classList.replace("signUpBtn", "hidden");
+				notBtn.classList.replace("hidden", "notBtn");
+			}
+			// console.log(boolEmail, boolTel, boolId, boolName, boolPw);
+		};
+
+		//문자열 포매팅 만족
+		const emailFormat = (v) => {
+			boolEmailformat = false;
+
+			const filter =
+				/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+
+			if (filter.test(v)) {
+				boolEmailformat = true;
+				errorFormat.classList.replace("errorMessage", "hidden");
+			} else {
+				boolEmailformat = false;
+				errorFormat.classList.replace("hidden", "errorMessage");
+			}
+		};
+
+		// Email, Tel id가 중복 여부 판단 후 이벤트
+		const checkEmail = async (event) => {
+			const em = document.querySelector(".inputEmail").value;
+			const data = await fetch(`/auth/emailcheck?email=${em}`);
+			const res = await data.text();
+
+			if (event.target.value == "") {
+				inputEmail.style.border = "";
+				inputEmail.style.outline = "none";
+				inputEmail.style.color = "";
+				boolOverlapEmail = false;
+				// errorMessage.classList.replace("errorMessage", "hidden");
+			} else {
+				if (res == "가입불가" || res == "아이디를 입력해 주세요") {
+					inputEmail.style.outline = "none";
+					inputEmail.style.border = "1px solid red";
+					inputEmail.style.color = "red";
+					// errorMessage.classList.replace("hidden", "errorMessage");
+
+					boolOverlapEmail = false;
+				} else if (res == "가입가능") {
+					inputEmail.style.border = "1px solid #0796f6";
+					inputEmail.style.outline = "none";
+					inputEmail.style.color = "";
+					// errorMessage.classList.replace("errorMessage", "hidden");
+
+					boolOverlapEmail = true;
+				}
+			}
+			emailFormat(em);
+			passSignUp();
+		};
+		const checkTel = async (event) => {
+			const tel = document.querySelector(".inputTel").value;
+			const data = await fetch(`/auth/telcheck?tel=${tel}`);
+			const res = await data.text();
+
+			if (event.target.value == "") {
+				inputTel.style.border = "";
+				inputTel.style.outline = "none";
+				inputTel.style.color = "";
+				boolOverlapTel = false;
+				// errorMessage.classList.replace("errorMessage", "hidden");
+			} else {
+				if (res == "가입불가" || res == "아이디를 입력해 주세요") {
+					inputTel.style.outline = "none";
+					inputTel.style.border = "1px solid red";
+					inputTel.style.color = "red";
+					// errorMessage.classList.replace("hidden", "errorMessage");
+
+					boolOverlapTel = false;
+				} else if (res == "가입가능") {
+					inputTel.style.border = "1px solid #0796f6";
+					inputTel.style.outline = "none";
+					inputTel.style.color = "";
+					// errorMessage.classList.replace("errorMessage", "hidden");
+
+					boolOverlapTel = true;
+				}
+			}
+
+			passSignUp();
+		};
+		const checkId = async (event) => {
+			const id = document.querySelector(".inputIdString").value;
+			const data = await fetch(`/auth/idcheck?idString=${id}`);
+			const res = await data.text();
+
+			if (event.target.value == "") {
+				inputIdString.style.border = "";
+				inputIdString.style.outline = "none";
+				inputIdString.style.color = "";
+				// errorMessage.classList.replace("errorMessage", "hidden");
+			} else {
+				if (res == "가입불가" || res == "아이디를 입력해 주세요") {
+					inputIdString.style.outline = "none";
+					inputIdString.style.border = "1px solid red";
+					inputIdString.style.color = "red";
+					errorMessage.classList.replace("hidden", "errorMessage");
+					boolOverlapId = false;
+				} else if (res == "가입가능") {
+					inputIdString.style.border = "1px solid #0796f6";
+					inputIdString.style.outline = "none";
+					inputIdString.style.color = "";
+					errorMessage.classList.replace("errorMessage", "hidden");
+					boolOverlapId = true;
+				}
+			}
+
+			passSignUp();
+		};
+
+		// enter 입력 시 submit 방지
+		const preventEnter = (event) => {
+			if (event.keyCode == 13) {
+				event.preventDefault();
+			}
+		};
+	</script>
+</html>

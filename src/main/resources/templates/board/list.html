@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head th:replace="common/head">
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Catstagram</title>
+	</head>
+
+	<body>
+		<div class="allArea">
+			<div class="topArea">
+				<!-- 로고 이미지 -->
+				<div class="logoArea">
+					<a href="/">
+						<img src="/img/catstargram.jpg" alt="noLogoImg" />
+					</a>
+				</div>
+				<!-- 로그인한 계정 -->
+				<div class="userProfile">
+					<a href="/userhistory">
+						<img src="/img/3_1.jpg" alt="noProfileImg" />
+						<div th:replace="common/header" class="userId"></div>
+					</a>
+				</div>
+			</div>
+
+			<div class="tableArea">
+				<table class="table table-hover">
+					<thead>
+						<th>번호</th>
+						<th>제목</th>
+						<th>작성자</th>
+						<th>작성일</th>
+						<th>아이피</th>
+					</thead>
+					<div th:each="board: ${boardList}">
+						<tbody>
+							<tr class="tableArea">
+								<td class="boardId">[[${board.id}]]</td>
+								<td>
+									<div class="boardTitle">
+										<a
+											th:href="@{/board/detail(id=${board.id})}"
+											th:title="${board.title}"
+											data-bs-toggle="popover"
+											data-bs-trigger="hover"
+											th:data-bs-content="${board.content}"
+											>[[${board.title}]]
+										</a>
+									</div>
+								</td>
+								<td>[[${board.writer}]]</td>
+								<td>[[${board.time}]]</td>
+								<td>[[${board.ip}]]</td>
+							</tr>
+							<br />
+						</tbody>
+					</div>
+				</table>
+			</div>
+
+			<div class="paginationArea">
+				<hr />
+				<ul class="pagination">
+					<li class="page-item"><a class="page-link" href="#">이전</a></li>
+					<th:block th:each="pageNumber : ${#numbers.sequence(1, 5)}">
+						<li class="page-item">
+							<a
+								class="page-link"
+								th:href="@{/board/list(p=${pageNumber})}"
+								th:text="${pageNumber}"
+								>1</a
+							>
+						</li>
+					</th:block>
+					<li class="page-item"><a class="page-link" href="#">다음</a></li>
+				</ul>
+			</div>
+			<hr />
+			<div class="bottomBtnArea">
+				<button onclick="moveToWrite()" class="writeBtn">글쓰기</button>
+				<!-- <button onclick="moveToMain()">홈으로 가기</button> -->
+			</div>
+		</div>
+	</body>
+	<script>
+		function moveToWrite() {
+			location.assign("/board/write");
+		}
+		function moveToMain() {
+			location.assign("/");
+		}
+
+		// var popoverTriggerList = [].slice.call(
+		// 	document.querySelectorAll('[data-bs-toggle="popover"]')
+		// );
+		const popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+			return new bootstrap.Popover(popoverTriggerEl);
+		});
+	</script>
+</html>

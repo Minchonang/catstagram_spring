@@ -1,0 +1,274 @@
+.hidden {
+	display: none;
+}
+a {
+	text-decoration: none;
+}
+
+.allArea {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.mainArea {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0.8vw auto 3vw auto;
+}
+
+.loginArea {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	padding: 30px 0 40px 0;
+	border: 1px solid #dbdbdb;
+	width: 350px;
+	max-width: 350px;
+}
+
+.loginArea a {
+	text-decoration: none;
+}
+
+/* 로그인 로고 영역 */
+.loginLogoArea {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	/* align-items: center; */
+}
+/* 로그인 로고(이미지) */
+.loginLogo {
+	width: 190px;
+	height: 60px;
+	padding: 20px;
+}
+
+.underLogoTextArea {
+	display: flex;
+	justify-content: center;
+	color: #6b6b6b;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+/* facebook 로그인 버튼 */
+.fbLoginArea {
+	margin: 20px 0 10px 0;
+}
+
+.fbLoginArea img {
+	width: 17px;
+	height: 17px;
+	padding-right: 5px;
+}
+.fbLoginArea a {
+	align-items: center;
+}
+.fbLoginBtn {
+	display: flex;
+	flex-direction: row;
+	background-color: #0796f6;
+	border: 0;
+	border-radius: 5px;
+	padding: 8px 60px;
+	border-radius: 8px;
+	cursor: pointer;
+}
+.fbLoginBtn:hover {
+	background-color: #1a77f2;
+}
+.fbLogin {
+	color: white;
+	font-size: 15px;
+}
+
+/* '또는' 영역 */
+.orArea {
+	display: flex;
+	flex-direction: row;
+	text-align: center;
+	margin: 0 0 10px 0;
+}
+.or_Line {
+	background-color: #dbdbdb;
+	height: 1px;
+	width: 105px;
+	margin: auto 0;
+}
+.or_Text {
+	padding: 0 20px;
+	font-size: 0.8rem;
+	color: #6b6b6b;
+}
+
+.signUpArea {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
+.signUpForm {
+	display: flex;
+	flex-direction: column;
+	padding: 0 30px;
+}
+
+.signUpForm input {
+	margin: 2px 0;
+	padding: 9px 0 7px 8px;
+	background-color: #fafafa;
+	border: 1px solid #dbdbdb;
+	border-radius: 2px;
+	width: 258px;
+	height: 18px;
+	outline: none;
+}
+.signUpForm input[type="number"]::-webkit-outer-spin-button,
+.signUpForm input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+.signUpForm input:focus {
+	border: 1px solid #a8a8a8;
+}
+.signUpForm input::placeholder {
+	font-size: 12px;
+}
+
+.info {
+	justify-content: center;
+	padding: 10px 0;
+}
+.infoText {
+	font-size: 12px;
+	color: #6b6b6b;
+}
+.seeMore {
+	font-size: 12px;
+	color: #01376b;
+	cursor: pointer;
+}
+
+.notBtn {
+	background-color: #67b5fa;
+	color: #ffffff;
+	font-size: 0.85rem;
+	font-weight: bold;
+	margin: 0 10px;
+	padding: 8px 80px;
+	border: 0;
+	border-radius: 8px;
+	cursor: default;
+}
+
+.signUpBtn {
+	background-color: #0796f6;
+	color: #ffffff;
+	font-weight: bold;
+	margin: 0 10px;
+	padding: 8px 80px;
+	border: 0;
+	border-radius: 8px;
+	cursor: pointer;
+}
+.signUpBtn:hover {
+	background-color: #1a77f2;
+}
+
+.disableBtn {
+	background-color: #67b5fa;
+	color: #ffffff;
+	font-weight: bold;
+	margin: 0 10px;
+	padding: 8px 80px;
+	border: 0;
+	border-radius: 5px;
+	cursor: default;
+}
+
+.errorMessage {
+	color: red;
+	font-size: 14px;
+	margin: 0 0 12px 0;
+}
+
+/* 계정이 있으신가요? */
+.haveAccountArea {
+	display: flex;
+	flex-direction: row;
+	border: 1px solid #dbdbdb;
+	justify-content: center;
+	align-items: center;
+	width: 350px;
+	margin: 10px auto;
+	padding: 20px 0;
+	font-size: 0.85rem;
+}
+
+/* 앱을 다운로드 하세요 */
+.storeBtnArea {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.appDLText {
+	justify-content: center;
+	text-align: center;
+	margin: 17px auto;
+	font-size: 0.91rem;
+}
+
+.storeBtn {
+	margin: 0 5px;
+	text-align: center;
+}
+
+.appStore_img {
+	width: 135px;
+	height: 42px;
+}
+
+.playStore_img {
+	width: 135px;
+	height: 42px;
+}
+
+/* 하단 약관 및 api 등 */
+.bottomContent {
+	justify-content: center;
+	margin: 3vw auto 0 auto;
+}
+.contentText {
+	cursor: pointer;
+}
+
+.contentLink,
+.copyright {
+	color: #6b6b6b;
+	font-size: 0.8rem;
+	padding: 0 6px;
+	line-height: 20px;
+}
+
+.lang_copyright {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 15px 0;
+}
+
+.selectLang {
+	outline: none;
+	border: 0px;
+	text-align: end;
+	width: 55px;
+	font-size: 0.8rem;
+	color: #737373;
+}

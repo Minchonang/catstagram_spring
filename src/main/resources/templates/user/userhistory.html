@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<style>
+			body {
+				margin: 30px 10vw;
+				padding-bottom: 100px;
+			}
+
+			.backBtn {
+				background-color: #dbdbdb;
+				padding: 8px 20px;
+				border: 0;
+				border-radius: 20px;
+				outline: white;
+				cursor: pointer;
+			}
+
+			.backBtn:hover,
+			.updateBtn:hover {
+				background-color: rgb(193, 193, 193);
+			}
+
+			.updateBtn,
+			.signOutBtn {
+				background-color: #dbdbdb;
+				border: 0;
+				border-radius: 20px;
+				margin: 0 10px 0 0;
+				padding: 8px 14px;
+				cursor: pointer;
+			}
+			.signOutBtn {
+				font-weight: bold;
+				color: rgb(227, 85, 85);
+				background-color: white !important;
+				border: 0.5px solid black;
+				transition-duration: 0.15s;
+			}
+			.signOutBtn:hover {
+				background-color: rgba(255, 0, 0, 0.284) !important ;
+			}
+
+			.topArea {
+				display: flex;
+				justify-content: space-between;
+				margin-right: 2vw;
+				margin-bottom: 2vw;
+			}
+			.logoArea a img {
+				width: auto;
+				height: 100px;
+			}
+
+			.userProfile {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+			}
+			.userProfile a {
+				display: flex;
+				flex-direction: row;
+			}
+
+			.userProfile img {
+				width: 50px;
+				height: 50px;
+				border-radius: 50vw;
+			}
+
+			.userId {
+				color: black;
+				font-weight: bold;
+				margin: 10px 0 0 15px;
+				font-size: 20px;
+			}
+		</style>
+		<title>Catstagram-회원정보</title>
+	</head>
+
+	<body>
+		<div class="topArea">
+			<div>
+				<div>
+					<button onclick="goBack()" class="backBtn">뒤로가기</button>
+				</div>
+				<div>
+					<h1>회원 정보</h1>
+				</div>
+				<hr />
+
+				<div>
+					<td>
+						<tr>
+							아이디:
+						</tr>
+						<tr>
+							[[${history.idString}]]
+						</tr>
+					</td>
+				</div>
+
+				<br />
+
+				<div>
+					<td>
+						<tr>
+							이메일:
+						</tr>
+						<tr>
+							[[${history.email}]]
+						</tr>
+					</td>
+				</div>
+				<br />
+				<div>
+					<td>
+						<tr>
+							이름:
+						</tr>
+						<tr>
+							[[${history.name}]]
+						</tr>
+					</td>
+				</div>
+				<br />
+				<div>
+					<td>
+						<tr>
+							가입 일자:
+						</tr>
+						<tr>
+							[[${history.time}]]
+						</tr>
+					</td>
+				</div>
+				<br />
+				<div>
+					<button
+						th:onclick="|location.assign('/userhistory/update')|"
+						class="updateBtn"
+					>
+						회원 정보 수정
+					</button>
+					<button onclick="signOut()" class="signOutBtn">로그아웃</button>
+				</div>
+				<br />
+			</div>
+		</div>
+	</body>
+	<script>
+		const goBack = () => {
+			location = "/";
+		};
+		const signOut = () => {
+			location.replace("/auth/signout");
+		};
+	</script>
+</html>

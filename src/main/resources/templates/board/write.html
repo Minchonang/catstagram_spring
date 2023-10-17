@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Catstagram</title>
+		<style>
+			.mainArea {
+				margin: 30px 10vw;
+				padding-bottom: 100px;
+			}
+
+			p {
+				font-weight: bold;
+			}
+
+			.inputTitle {
+				width: 300px;
+			}
+
+			.inputContext {
+				width: 300px;
+			}
+
+			button {
+				background-color: #dbdbdb;
+				padding: 4px 20px;
+				border: 0;
+				border-radius: 20px !important;
+				outline: white;
+				cursor: pointer;
+			}
+
+			button:hover {
+				background-color: rgb(193, 193, 193);
+			}
+		</style>
+	</head>
+
+	<head th:replace="common/head"> </head>
+
+	<body>
+		<!-- <div th:replace="common/header"></div> -->
+		<div class="mainArea">
+			<div>
+				<button onclick="goBack()">뒤로가기</button>
+			</div>
+			<br />
+			<div>
+				<form action="/board/write" method="post">
+					<p>제목</p>
+					<input type=" text" name="title" class="inputTitle" required />
+					<hr />
+
+					<p>내용</p>
+					<textarea
+						name="content"
+						cols="30"
+						rows="10"
+						class="inputContext"
+					></textarea>
+
+					<p style="font-weight: bold">작성자</p>
+					<input type="text" name="writer" th:value="${session.id}" disabled />
+					<input type="hidden" name="idString" th:value="${session.id}" />
+
+					<hr />
+					<!-- <input type="hidden" name="id"> -->
+
+					<button>작성 완료</button>
+				</form>
+			</div>
+		</div>
+	</body>
+	<script>
+		const goBack = () => {
+			location = "/board";
+		};
+	</script>
+</html>

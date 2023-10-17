@@ -1,0 +1,161 @@
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Catstagram</title>
+		<style>
+			body {
+				margin: 30px 10vw;
+			}
+			a {
+				text-decoration: none;
+			}
+			button {
+				border: 0;
+				padding: 10px 15px;
+				border-radius: 20px;
+				cursor: pointer;
+			}
+			.delBtn {
+				font-size: 15px;
+				background-color: white;
+				color: rgb(4, 4, 190) !important;
+			}
+			.topArea {
+				display: flex;
+				justify-content: space-between;
+				margin-right: 2vw;
+				margin-bottom: 2vw;
+			}
+
+			.logoArea a img {
+				width: auto;
+				height: 100px;
+			}
+
+			.userProfile {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+			}
+			.userProfile a {
+				display: flex;
+				flex-direction: row;
+			}
+
+			.userProfile img {
+				width: 50px;
+				height: 50px;
+				border-radius: 50vw;
+			}
+			.userId {
+				color: black;
+				font-weight: bold;
+				margin: 10px 0 0 15px;
+				font-size: 20px;
+			}
+
+			.commentInput {
+				width: 500px;
+				padding: 5px 10px;
+				border: 0.5px solid black;
+				border-radius: 5px;
+				outline: none;
+			}
+			.commentBtn {
+				background-color: white;
+				padding-left: 5px !important;
+				font-size: 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="allArea">
+			<div class="topArea">
+				<!-- 로고 이미지 -->
+				<div class="logoArea">
+					<a href="/">
+						<img src="/img/catstargram.jpg" alt="noLogoImg" />
+					</a>
+				</div>
+				<!-- 로그인한 계정 -->
+				<div class="userProfile">
+					<a href="/userhistory">
+						<img src="/img/3_1.jpg" alt="noProfileImg" />
+						<div th:replace="common/header" class="userId"></div>
+					</a>
+				</div>
+			</div>
+			<div class="contentArea"></div>
+			<button onclick="goToBack()">뒤로 가기</button>
+			<hr />
+			<p>번호: [[${detail.id}]]</p>
+			<h3>제목: [[${detail.title}]]</h3>
+			<hr />
+			<br />
+			<div>[[${detail.content}]]</div>
+
+			<p style="color: gray">작성자: [[${detail.writer}]]</p>
+
+			<hr />
+			<button onclick="update()">수정하기</button>
+
+			<!-- comment내용입니다. -->
+			<form action="/board/comment" method="post">
+				<p>덧글 내용</p>
+				<span>
+					<input
+						type="text"
+						name="content"
+						autocomplete="off"
+						class="commentInput"
+					/>
+				</span>
+				<span>
+					<button class="commentBtn">전송</button>
+				</span>
+				<!-- 작성자  선택 -->
+				<p th:if="${session.id}== null">
+					<input type="text" name="writer" value="로그인이안되었는데?" />
+				</p>
+
+				<br />
+				<div>
+					<span>
+						<input type="hidden" name="board" th:value="${detail.id}" />
+					</span>
+				</div>
+			</form>
+
+			<!-- 덧글들 내용입니다.  -->
+			<p th:each="comment: ${detail.comments}">
+				<span style="font-weight: bold"> [[${comment.writer}]] </span>
+				<span style="color: black"> [[${comment.content}]] </span>
+				<span style="color: lightgray"> [[${comment.time}]] </span>
+
+				<button
+					th:onclick="'removeComment(' + ${comment.id} + ')'"
+					class="delBtn"
+				>
+					삭제
+				</button>
+			</p>
+		</div>
+	</body>
+
+	<script>
+		function goToBack() {
+			location.assign(`/board`);
+		}
+		function update() {
+			location.assign(`/board/update?id=[[${detail.id}]]`);
+		}
+		function removeComment(id) {
+			const isOk = confirm("삭제하시겠습니까?");
+			if (isOk) {
+				location = `/board/comment/remove?id=${id}&detailId=[[${detail.id}]]`;
+			}
+		}
+	</script>
+</html>

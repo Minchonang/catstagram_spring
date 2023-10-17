@@ -1,0 +1,83 @@
+a {
+	text-decoration: none;
+}
+
+.allArea {
+	display: flex;
+	flex-direction: column;
+	margin: 30px 10vw;
+	padding-bottom: 100px;
+}
+
+.topArea {
+	display: flex;
+	justify-content: space-between;
+	margin-right: 2vw;
+	margin-bottom: 2vw;
+}
+
+.logoArea a img {
+	width: auto;
+	height: 100px;
+}
+
+.userProfile {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.userProfile a {
+	display: flex;
+	flex-direction: row;
+}
+
+.userProfile img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50vw;
+}
+
+.userId {
+	color: black;
+	font-weight: bold;
+	margin: 10px 0 0 15px;
+	font-size: 20px;
+}
+
+th {
+	vertical-align: top;
+}
+td {
+	vertical-align: middle;
+}
+
+.boardId {
+	align-items: center;
+}
+.boardTitle {
+	margin: 10px 0;
+}
+
+.paginationArea {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.bottomBtnArea {
+	display: flex;
+	flex-direction: row;
+}
+
+.writeBtn {
+	background-color: #e6e6e6;
+	cursor: pointer;
+	padding: 5px 30px;
+	border: 0;
+	border-radius: 20px;
+	transition: 150ms;
+}
+
+.writeBtn:hover {
+	background-color: #1a78f26e;
+}

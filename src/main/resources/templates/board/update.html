@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head th:replace="common/head">
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Catstagram</title>
+		<style>
+			.allArea {
+				margin: 30px 10vw;
+				padding-bottom: 100px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="allArea">
+			<div class="topArea">
+				<!-- 로고 이미지 -->
+				<div class="logoArea">
+					<a href="/">
+						<img src="/img/catstargram.jpg" alt="noLogoImg" />
+					</a>
+				</div>
+				<!-- 로그인한 계정 -->
+				<div class="userProfile">
+					<a href="/userhistory">
+						<img src="/img/3_1.jpg" alt="noProfileImg" />
+						<div th:replace="common/header" class="userId"></div>
+					</a>
+				</div>
+			</div>
+
+			<div>
+				<form action="/board/write" method="post">
+					<h3>제목</h3>
+					<input type="text" name="title" th:value="${update.title}" />
+					<br />
+					<br />
+					<h3>내용</h3>
+					<textarea
+						name="content"
+						cols="30"
+						rows="10"
+						th:value="${update.content}"
+					></textarea>
+					<br />
+					<br />
+
+					<input
+						type="hidden"
+						name="writer"
+						th:value="${session.id}"
+						disabled
+					/>
+					<hr />
+
+					<input type="hidden" name="id" th:value="${update.id}" />
+
+					<button>작성 완료</button>
+				</form>
+			</div>
+		</div>
+	</body>
+	<script>
+		function moveToWrite() {
+			location.assign("/board/write");
+		}
+		function moveToMain() {
+			location.assign("/");
+		}
+
+		// var popoverTriggerList = [].slice.call(
+		// 	document.querySelectorAll('[data-bs-toggle="popover"]')
+		// );
+		const popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+			return new bootstrap.Popover(popoverTriggerEl);
+		});
+	</script>
+</html>

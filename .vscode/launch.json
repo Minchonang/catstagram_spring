@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "InstaApplication",
+            "request": "launch",
+            "mainClass": "com.example.insta.InstaApplication",
+            "projectName": "basic"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-InstaApplication<insta>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.insta.InstaApplication",
+            "projectName": "insta",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
